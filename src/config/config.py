@@ -1,5 +1,6 @@
 import os
 import pathlib
+import src
 
 NUM_LAYERS = 3
 NUM_INPUTS = 2
