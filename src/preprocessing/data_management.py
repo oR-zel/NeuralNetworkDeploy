@@ -17,7 +17,7 @@ def save_model(theta0,theta):
     
     with open(pkl_file_path,"wb") as file_handle:
         
-        file_handle.dump({"biases":theta0,"weights":theta,"activation_function":{"0":None,"1":"Linear","2":"relu"}})
+        pickle.dump({"biases":theta0,"weights":theta,"activation_function":{"0":None,"1":"Linear","2":"relu"}},file_handle)
         
 
 def load_model(file_name):
@@ -25,6 +25,6 @@ def load_model(file_name):
     pkl_file_path = os.path.join(config.SAVED_MODEL_PATH,file_name)
     
     with open(pkl_file_path,"rb") as file_handle:
-        trained_params = file_handle.load()
+        trained_params = pickle.load(file_handle)
         
     return trained_params["biases"], trained_params["weights"]
